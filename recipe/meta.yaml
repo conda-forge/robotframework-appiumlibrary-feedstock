@@ -1,5 +1,5 @@
 {% set name = "robotframework-appiumlibrary" %}
-{% set version = "1.5.0.6" %}
+{% set version = "1.5.0.7" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/robotframework-appiumlibrary-{{ version }}.tar.gz
-  sha256: 7171a81705bbfa0091c1cf6518277681752386c860efc6dd98c85d74970ad2a6
+  sha256: c46ebc63790a4a68993e81464cb521ee5994244eb087796079faa07a99e38824
 
 build:
   number: 0
