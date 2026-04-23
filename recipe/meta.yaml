@@ -1,6 +1,6 @@
-{% set python_min = '3.12' %}
+{% set python_min = "3.12" %}
 {% set name = "robotframework-appiumlibrary" %}
-{% set version = "2.1.0" %}
+{% set version = "3.2.1" %}
 
 
 package:
@@ -8,8 +8,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/robotframework-appiumlibrary-{{ version }}.tar.gz
-  sha256: d01b1ed21e79996a790ffb7ad475862f6e9427770a9c88314065b1c59ce2d52c
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: f1a56efbbc00ea63ab577a18dcf4fcf5c262aa1cdbcab3ba97f971f75e255dfd
 
 build:
   number: 0
@@ -46,7 +46,7 @@ about:
   home: https://github.com/serhatbolsu/robotframework-appiumlibrary
   summary: Robot Framework Mobile app testing library for Appium Client Android & iOS & Web
   license: Apache-2.0
-  license_file: LICENSE.txt 
+  license_file: LICENSE.txt
 extra:
   recipe-maintainers:
     - saibhargav1508
