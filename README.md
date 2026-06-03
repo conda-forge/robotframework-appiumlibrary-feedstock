@@ -9,6 +9,8 @@ Package license: Apache-2.0
 
 Summary: Robot Framework Mobile app testing library for Appium Client Android & iOS & Web
 
+Documentation: https://serhatbolsu.github.io/robotframework-appiumlibrary/AppiumLibrary.html
+
 Current build status
 ====================
 
@@ -143,6 +145,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@bollwyvl](https://github.com/bollwyvl/)
 * [@nisharai1](https://github.com/nisharai1/)
 * [@saibhargav1508](https://github.com/saibhargav1508/)
 

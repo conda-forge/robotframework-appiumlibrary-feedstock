@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+schema_version: 1
+
+context:
+  version: "2.1.0"
+  python_check_max: "3.13"
+  selenium_min: "4.0"
+  selenium_max_inclusive: "4.16"
+  appium_min: "2.7.1"
+  appium_max_exclusive: "4.0.0"
+
+package:
+  name: robotframework-appiumlibrary
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/r/robotframework-appiumlibrary/robotframework-appiumlibrary-${{ version }}.tar.gz
+  sha256: d01b1ed21e79996a790ffb7ad475862f6e9427770a9c88314065b1c59ce2d52c
+
+build:
+  number: 1
+  noarch: python
+  script:
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+
+requirements:
+  host:
+    - pip
+    - pytest-runner
+    - python ${{ python_min }}.*
+    - setuptools
+  run:
+    - appium-python-client >=${{ appium_min }},<${{ appium_max_exclusive }}
+    - decorator >=3.3.2
+    - docutils >=0.8.1
+    - kitchen >=1.2.4
+    - python >=${{ python_min }}
+    - robotframework >=2.6.0
+    - selenium >=${{ selenium_min }},<=${{ selenium_max_inclusive }}
+    - six >=1.10.0
+
+tests:
+  - python:
+      imports: AppiumLibrary
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - ${{ python_check_max }}.*
+  - requirements:
+      run:
+        - ${{ python_min }}.*
+        - ${{ selenium_min }}.*
+        - ${{ appium_min }}.*
+    script:
+      - python -c "import AppiumLibrary; assert AppiumLibrary.__version__ == '${{ version }}'"
+  - requirements:
+      run:
+        - ${{ python_check_max }}.*
+        - ${{ selenium_max_inclusive }}.*
+    script:
+      - python -c "import AppiumLibrary; assert AppiumLibrary.__version__ == '${{ version }}'"
+
+about:
+  summary: Robot Framework Mobile app testing library for Appium Client Android & iOS & Web
+  license: Apache-2.0
+  license_file: LICENSE
+  homepage: https://github.com/serhatbolsu/robotframework-appiumlibrary
+  documentation: https://serhatbolsu.github.io/robotframework-appiumlibrary/AppiumLibrary.html
+
+extra:
+  recipe-maintainers:
+    - saibhargav1508
+    - nisharai1
+    - bollwyvl
